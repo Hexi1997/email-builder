@@ -1,0 +1,10 @@
+name = "email-builder"
+type = "webpack"
+route = ''
+account_id='682837db35985a6a3a1a94d7e2bb3324'
+zone_id = ''
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+site = {bucket = "./dist",entry-point = "workers-site"}
+compatibility_date = "2021-10-19"

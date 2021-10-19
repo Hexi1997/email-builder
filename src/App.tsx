@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Dashboard } from './components/Dashboard';
 import { Editor } from './components/Editor/Editor';
 import { NotFound } from './components/NotFound';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Redirect from="/dashboard" exact={true} to="/dashboard/projects" />
         <Route path="/dashboard" component={Dashboard} />
@@ -15,7 +15,7 @@ function App() {
         <Redirect from="/" exact={true} to="/dashboard/projects" />
         <Route path="*" component={NotFound} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
