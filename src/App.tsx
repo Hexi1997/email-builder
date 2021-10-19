@@ -1,16 +1,21 @@
 import React from 'react';
 
-import { Header } from './components/Header';
-
-import styles from './App.module.less';
-import { Content } from './components/Content';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Dashboard } from './components/Dashboard';
+import { Editor } from './components/Editor/Editor';
+import { NotFound } from './components/NotFound';
 
 function App() {
   return (
-    <div className={styles.app}>
-      <Header />
-      <Content />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Redirect from="/dashboard" exact={true} to="/dashboard/projects" />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path={`/editor/:id`} component={Editor} />
+        <Redirect from="/" exact={true} to="/dashboard/projects" />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
